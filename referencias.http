@@ -1,0 +1,57 @@
+###
+# ==================================================
+# API CRUD Usuários (porta 3000)
+# ==================================================
+
+###
+# Rota Principal (Teste de Conexão)
+# Endpoint: /
+# Método: GET
+GET http://localhost:3000/
+
+###
+# [CREATE] Criar um novo usuário
+# Endpoint: /users
+# Método: POST
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "nome": "Eric",
+  "email": "eric123@exemplo.com",
+  "senha": "senha123",
+  "telefone": "48999998888"
+}
+
+###
+# [READ] Obter todos os usuários
+# Endpoint: /users
+# Método: GET
+GET http://localhost:3000/users
+
+###
+# [READ] Obter um usuário por ID
+# Endpoint: /users/:id
+# Método: GET
+# (Troque o UUID abaixo pelo ID de um usuário real do seu banco)
+GET http://localhost:3000/users/8329c05e-71a4-42b1-a364-01e363a72ff8
+
+###
+# [UPDATE] Atualizar dados de um usuário (Parcial)
+# Endpoint: /users/:id
+# Método: PUT
+# (Troque o UUID abaixo pelo ID de um usuário real do seu banco)
+PUT http://localhost:3000/users/8329c05e-71a4-42b1-a364-01e363a72ff8
+Content-Type: application/json
+
+{
+  "nome": "Thomas Nome Atualizado",
+  "telefone": "11222223333"
+}
+
+###
+# [DELETE] Deletar um usuário
+# Endpoint: /users/:id
+# Método: DELETE
+# (Troque o UUID abaixo pelo ID de um usuário real do seu banco)
+DELETE http://localhost:3000/users/8d044e0a-72b7-465d-8bca-6b86e47483e5
