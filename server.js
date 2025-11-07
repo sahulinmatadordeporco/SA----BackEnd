@@ -2,21 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');
 
-// ==================================================
 // Configuração
-// ==================================================
 const app = express();
 const port = 3000;
 
-// ==================================================
 // Middlewares
-// ==================================================
 app.use(cors()); // Habilita o CORS
 app.use(express.json()); // Habilita o parse de JSON no body
 
-// ==================================================
 // Conexão com o Banco de Dados (PostgreSQL)
-// ==================================================
 const pool = new Pool({
   user: 'thomas',
   host: 'localhost',
@@ -25,25 +19,7 @@ const pool = new Pool({
   port: 5432, // Porta padrão do PostgreSQL
 });
 
-/*
-  ---------------------------------------------------
-  SQL PARA CRIAR A TABELA (Fornecido por você):
-  ---------------------------------------------------
-  CREATE TABLE IF NOT EXISTS users (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    nome VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    senha VARCHAR(255) NOT NULL,
-    telefone VARCHAR(20) NOT NULL,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-  );
-  ---------------------------------------------------
-*/
-
-// ==================================================
 // Rotas da API (CRUD para Usuários)
-// ==================================================
 
 // Rota principal
 app.get('/', (req, res) => {
@@ -165,9 +141,7 @@ app.delete('/users/:id', async (req, res) => {
   }
 });
 
-// ==================================================
 // Iniciar o Servidor
-// ==================================================
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
